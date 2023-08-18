@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero').preset({})
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
     lsp.default_keymaps({ buffer = bufnr })
@@ -20,6 +20,7 @@ cmp.setup({
     mapping = {
         ['<Tab>'] = cmp_action.tab_complete(),
         ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
-        -- ['<C-Space>'] = cmp_action.toggle_completion(),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<C-Space>'] = cmp_action.toggle_completion(),
     }
 })
