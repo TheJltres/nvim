@@ -7,8 +7,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Nord theme
-    use 'shaunsingh/nord.nvim'
+    -- Nordic theme
+    use 'AlexvZyl/nordic.nvim'
 
     -- Find files and serch
     use {
