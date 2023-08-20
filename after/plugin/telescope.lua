@@ -10,6 +10,11 @@ vim.keymap.set('n', '<leader>fs', function()
 end)
 
 require('telescope').setup {
+    pickers = {
+        find_files = {
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        }
+    },
     defaults = {
         file_ignore_patterns = {
             "node%_modules/.*"
