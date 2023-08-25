@@ -32,7 +32,7 @@ telescope.setup {
             base_dirs = {
                 '~',
             },
-            theme = "dropdown",
+            theme = "ivy",
             order_by = "asc",
             search_by = "title",
             on_project_selected = function(prompt_bufnr)
