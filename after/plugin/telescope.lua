@@ -16,7 +16,6 @@ vim.keymap.set('n', '<leader>fs', function()
 end)
 
 local project_actions = require("telescope._extensions.project.actions")
-telescope.load_extension('project')
 telescope.setup {
     pickers = {
         find_files = {
@@ -39,7 +38,10 @@ telescope.setup {
             on_project_selected = function(prompt_bufnr)
                 -- Do anything you want in here. For example:
                 project_actions.change_working_directory(prompt_bufnr, false)
+                vim.cmd.Ex(project_actions.get_selected_path(prompt_bufnr))
             end
         },
     },
 }
+
+telescope.load_extension('project')
