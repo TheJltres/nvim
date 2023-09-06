@@ -10,6 +10,9 @@ return require('packer').startup(function(use)
     -- Nordic theme
     use 'AlexvZyl/nordic.nvim'
 
+    -- Try harpoon
+    use 'ThePrimeagen/harpoon'
+
     -- Find files and serch
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
@@ -18,7 +21,7 @@ return require('packer').startup(function(use)
     }
     use {
         'nvim-telescope/telescope-project.nvim',
-        requires = { { 'nvim-telescope/telescope-project.nvim' } }
+        requires = { { 'nvim-telescope/telescope.nvim' } }
     }
 
     -- Highlights
@@ -51,10 +54,6 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
-
-    -- Debugger
-    use 'mfussenegger/nvim-dap'
-    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
     -- Function help
     use "ray-x/lsp_signature.nvim"

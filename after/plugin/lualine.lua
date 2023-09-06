@@ -1,9 +1,13 @@
+local function keymap()
+    return vim.api.nvim_win_get_number(0)
+end
+
 require('lualine').setup {
     options = {
-        icons_enabled = false,
-        theme = 'nord',
-        component_separators = '',
-        section_separators = '',
+        icons_enabled = true,
+        theme = 'onedark',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -26,9 +30,14 @@ require('lualine').setup {
             },
             'diagnostics'
         },
-        lualine_c = { 'filename' },
+        lualine_c = {
+            {
+                'filename',
+                path = 1
+            }
+        },
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
+        lualine_y = { 'progress', keymap },
         lualine_z = { 'location' }
     },
     inactive_sections = {

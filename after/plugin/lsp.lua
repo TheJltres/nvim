@@ -4,6 +4,7 @@ lsp.on_attach(function(_, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
     lsp.default_keymaps({ buffer = bufnr })
+    vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
 
     lsp.buffer_autoformat()
 end)
