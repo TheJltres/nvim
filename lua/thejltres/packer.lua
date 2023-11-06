@@ -7,8 +7,8 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Nordic theme
-    use 'AlexvZyl/nordic.nvim'
+    -- Theme
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Try harpoon
     use 'ThePrimeagen/harpoon'
@@ -18,10 +18,6 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-    use {
-        'nvim-telescope/telescope-project.nvim',
-        requires = { { 'nvim-telescope/telescope.nvim' } }
     }
 
     -- Highlights
