@@ -32,6 +32,10 @@ return {
                     end
                 end,
                 ['<C-e>'] = cmp.mapping.abort(),
+                ['.'] = cmp.mapping.confirm({
+                    behaior = cmp.ConfirmBehavior.Replace,
+                    select = false -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                }),
                 ['<CR>'] = cmp.mapping.confirm({
                     behaior = cmp.ConfirmBehavior.Replace,
                     select = false -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
