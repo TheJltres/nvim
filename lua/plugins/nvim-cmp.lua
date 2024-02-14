@@ -38,21 +38,11 @@ return {
                     end
                 end,
                 ['<C-e>'] = cmp.mapping.abort(),
-                ["<CR>"] = cmp.mapping({
-                    i = function(fallback)
-                        if cmp.visible() then
-                            cmp.confirm({ behavior = select_opts.behavior, select = true })
-                        else
-                            fallback()
-                        end
-                    end,
-                    s = cmp.mapping.confirm({ select = true }),
-                    c = cmp.mapping.confirm({ behavior = select_opts.behavior, select = true }),
-                }),
+                ["<CR>"] = cmp.mapping.confirm({ select = true }),
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         if #cmp.get_entries() == 1 then
-                            cmp.confirm({ select = true })
+                            cmp.confirm({ behavior = select_opts.behavior, select = true })
                         else
                             cmp.select_next_item(select_opts)
                         end
@@ -63,13 +53,12 @@ return {
                     elseif has_words_before() then
                         cmp.complete()
                         if #cmp.get_entries() == 1 then
-                            cmp.confirm({ select = true })
+                            cmp.confirm({ behavior = select_opts.behavior, select = true })
                         end
                     else
                         fallback()
                     end
                 end, { "i", "s" }),
-
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
