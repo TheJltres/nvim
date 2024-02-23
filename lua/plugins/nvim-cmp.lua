@@ -13,6 +13,8 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
+        "petertriho/cmp-git",
+        "hrsh7th/cmp-cmdline",
     },
     config = function()
         local cmp = require("cmp")
@@ -50,8 +52,8 @@ return {
                             cmp.select_next_item(select_opts)
                         end
                     elseif luasnip.expand_or_jumpable() then
-                            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-                            -- that way you will only jump inside the snippet region
+                        -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+                        -- that way you will only jump inside the snippet region
                         luasnip.expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
@@ -81,5 +83,33 @@ return {
                 { name = 'buffer' },
             }),
         })
+
+        -- Set configuration for specific filetype.
+        cmp.setup.filetype('gitcommit', {
+            sources = cmp.config.sources({
+                { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+            }, {
+                { name = 'buffer' },
+            })
+        })
+
+        -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline({ '/', '?' }, {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = 'buffer' }
+            }
+        })
+
+        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline(':', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
+                { name = 'cmdline' }
+            })
+        })
+
     end,
 }
