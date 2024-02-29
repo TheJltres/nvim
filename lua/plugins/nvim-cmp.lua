@@ -32,8 +32,8 @@ return {
                 -- documentation = cmp.config.window.bordered(),
             },
             mapping = cmp.mapping.preset.insert({
-                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-d>'] = cmp.mapping.scroll_docs(4),
+                ['<C-n>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-p>'] = cmp.mapping.scroll_docs(4),
                 ['ESC'] = cmp.mapping.abort(),
                 ['<C-Space>'] = function()
                     if cmp.visible() then
@@ -110,6 +110,5 @@ return {
                 { name = 'cmdline' }
             })
         })
-
     end,
 }
