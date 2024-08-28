@@ -1,20 +1,14 @@
 return {
-    {
-        'AlexvZyl/nordic.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- require('nordic').load({
-            --     -- swap_backgrounds = true,
-            -- })
-        end
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+        style = "night",
+        styles = {
+            keywords = { italic = false, },
+        }
     },
-    {
-        'dracula/vim',
-        lazy = false,
-        priority = 1000,
-        config = function ()
-            vim.cmd.colorscheme('dracula')
-        end
-    }
+    init = function ()
+        vim.cmd.colorscheme("tokyonight")
+    end
 }

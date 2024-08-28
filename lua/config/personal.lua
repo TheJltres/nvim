@@ -1,8 +1,6 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 vim.g.have_nerd_font = true
 
+vim.opt.guicursor = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -62,3 +60,19 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- Copy to file clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")
+
+vim.diagnostic.config({
+    -- update_in_insert = true,
+    float = {
+        focusable = false,
+        style = "minimal",
+        border = "single",
+        source = true,
+        header = "",
+    },
+})
