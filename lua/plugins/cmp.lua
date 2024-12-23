@@ -70,7 +70,7 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
-                { name = 'lazydev', group_index = 0 },
+                { name = 'lazydev',                group_index = 0 },
                 { name = 'path' },
                 { name = 'nvim_lsp_signature_help' },
                 { name = 'buffer' },
@@ -81,9 +81,9 @@ return {
             sources = cmp.config.sources({
                 { name = 'git' },
             }, {
-                    { name = 'path' },
-                    { name = 'buffer' },
-                })
+                { name = 'path' },
+                { name = 'buffer' },
+            })
         })
         require("cmp_git").setup()
 
@@ -100,8 +100,8 @@ return {
             sources = cmp.config.sources({
                 { name = 'path' }
             }, {
-                    { name = 'cmdline' }
-                }),
+                { name = 'cmdline' }
+            }),
             matching = { disallow_symbol_nonprefix_matching = false }
         })
 
